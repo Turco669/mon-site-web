@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page de contact</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Une description de la page...">
+
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Entête de ma page -->
+    <header>
+        <!-- navigation -->
+        <nav>
+            <ul>
+                <li> <a href="./index.html">Acceuil</a> </li>
+            
+                <li> <a href="./page-detail-1.html">Page détail 1</a> </li>
+            
+                <li> <a href="./page-detail-2.html">Page détail 2</a> </li>
+            
+                <li> <a href="./page-detail-3.html">Page détail 3</a> </li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <h1>Contactez nous</h1>
+
+    <p>Utilisez ce formulaire pour comander vos chassures, ou simplement pour nous envoyer un message.</p>
+
+    <form>
+        <label for="firstname-id">Nom *</label>
+        <input type="text" id="firstname-id" name="firstname" required maxlength="32"> <br>
+
+        <br><label for="lastname-id">Prénom *</label>
+        <input type="text" id="lastname-id" name="lastname" required maxlength="32"> <br>
+      
+        <br><label for="email-id">Email *</label>
+        <input type="email" id="email-id" name="email" required size="50"> <br>
+
+        <br><label for="address-id">Adresse *</label>
+        <input type="text" id="address-id" name="address" required> <br>
+
+        <br><label for="lieu-id">Lieu *</label>
+        <input type="text" id="lieu-id" name="lieu" required> <br>
+
+        <br><label for="npa-id">N° postale (NPA) *</label>
+        <input type="number" id="npa-id" name="npa" required> <br>
+
+        <br>
+        <form>
+            <fieldset>
+                <legend>Votre commande</legend>
+    
+                <p>Modèle de chaussure :</p>
+    
+                <input type="checkbox" name="chaussure[]" value="TN Noir" checked> TN Noir<br>
+                <input type="checkbox" name="chaussure[]" value="TN Noir"> Air Force One Noir<br>
+                <input type="checkbox" name="chaussure[]" value="TN Noir"> B22 Noir<br>
+    
+                <br>
+                <form>
+    
+                    <label>Quantité *</label>
+                    <select name="quantite" required>
+        
+                        <option selected>-- Choisissez --</option>
+        
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+        
+                    </select>
+                    <br>
+    
+                </form>
+                <br>
+
+                <fieldset>
+                    <legend>Mode de paiement</legend>
+                    
+                    <input type="radio" name="monequipefav" value="Payement à la livraison" checked> Payement à la livraison
+                    <input type="radio" name="monequipefav" value="Carte bancaire"> Carte bancaire
+                    <input type="radio" name="monequipefav" value="PayPal"> PayPal
+        
+                </fieldset>
+                
+    
+    
+            </fieldset>
+            
+        </form>
+        
+        <br>
+        <label for="message-id">Message</label> <br>
+        <textarea rows="3" id="message-id" name="message"></textarea>
+      
+        <br>
+        <br>
+        <input type="checkbox" name="conditionsGeneral"> J'accepte les conditions générales *<br>
+      
+        <br>
+        <br>
+        <input type="submit" value="Envoyer">
+
+    </form>
+
+</body>
+</html>
