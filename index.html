@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Page d'accueil</title>
+    <title>Page d'accueil - Vente de Scripts</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Une page dédiée aux chaussures">
+    <meta name="description" content="Site de vente de scripts informatiques">
     <meta name="copyright" content="© 2025 - Tous droits réservés">
 
     <style>
@@ -16,15 +16,17 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            color: #333;
-            background: linear-gradient(120deg, #f7f7f7, #eaeaea);
-            animation: backgroundFade 6s infinite alternate;
+            color: #fff;
+            background-color: #1f1f1f;
         }
-
         header {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background: #333;
             padding: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
         }
 
         header nav ul {
@@ -52,7 +54,34 @@
             color: #ffcc00;
         }
 
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .tab {
+            background: #444;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tab:hover {
+            background: #555;
+            color: #ffcc00;
+        }
+
+        .tab.active {
+            background: #333;
+            color: #ffcc00;
+        }
+
         main {
+            margin-top: 100px; /* Pour compenser le header fixe */
             text-align: center;
             padding: 40px 20px;
         }
@@ -60,22 +89,13 @@
         main h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #333;
-            animation: fadeIn 1.5s ease;
+            color: #fff;
         }
 
         main p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            color: #555;
-        }
-
-        main img {
-            width: 90%;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            margin: 20px 0;
-            animation: zoomIn 2s ease;
+            color: #aaa;
         }
 
         footer {
@@ -83,7 +103,6 @@
             color: white;
             text-align: center;
             padding: 20px 0;
-            margin-top: 40px;
         }
 
         footer ul {
@@ -104,32 +123,160 @@
             color: #ffcc00;
         }
 
-        @keyframes backgroundFade {
-            0% {
-                background: #f7f7f7;
-            }
-            100% {
-                background: #eaeaea;
-            }
+        .script-block {
+            background-color: #333;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .script-block:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.9);
-            }
-            to {
-                transform: scale(1);
-            }
+        .script-content {
+            text-align: center;
         }
+
+        .script-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .script-name {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .script-description {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .toggle-info {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-info:hover {
+            background-color: #777;
+        }
+        
+        .script-info {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #2e2e2e;
+            border-radius: 8px;
+            color: #bbb;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .script-info.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .description-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+
+        .download-btn {
+            display: inline-block;
+            background-color: #ffde5b;
+            color: black;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #e6b800;
+        }
+
+        .script-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        #gratuit .script-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
+            gap: 20px; /* Espace entre les blocs */
+            justify-content: center; /* Centrer la grille */
+            margin-top: 20px;
+        }
+
+        #gratuit .script-block {
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        #gratuit .script-block:hover {
+            transform: translateY(-5px); /* Effet de survol */
+        }
+
+        #gratuit .script-content {
+            text-align: center;
+        }
+
+        #gratuit .script-image {
+            width: 100%; /* L'image s'adapte à la largeur du bloc */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        #gratuit .script-name {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        #gratuit .script-description {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        #gratuit .download-btn {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #gratuit .download-btn:hover {
+            background-color: #218838;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -137,25 +284,100 @@
         <nav>
             <ul>
                 <li><a href="./index.html">Accueil</a></li>
-                <li><a href="./page-detail-1.html">Page détail 1</a></li>
-                <li><a href="./page-detail-2.html">Page détail 2</a></li>
-                <li><a href="./page-detail-3.html">Page détail 3</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./mentions-legales.html">Mentions Légales</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <h1>Bienvenue dans l'univers des chaussures</h1>
-        <p>Découvrez les meilleures chaussures du moment</p>
-        <img src="./media/img/chaussures-ex.jpg" alt="Chaussures">
+        <h1>Bienvenue sur notre site de vente de scripts</h1>
+        <p>Découvrez nos scripts dans différentes catégories et langages.</p>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="changeTab('gratuit')">Scripts Gratuits</div>
+            <div class="tab" onclick="changeTab('payant')">Scripts Payants</div>
+            <div class="tab" onclick="changeTab('langages')">Langages</div>
+        </div>
+
+        <br>
+
+        <div id="gratuit" class="tab-content">
+            <h2>Scripts Gratuits</h2>
+            <p>Explorez nos scripts gratuits pour des projets personnels ou d'apprentissage.</p>
+        
+            <div class="script-container">
+                <!-- Bloc 1 -->
+                <div class="script-block">
+                    <div class="script-content">
+                        <img src="./media/img/puissance4-console.png" alt="Puissance 4 Console Image" class="script-image">
+                        <h3 class="script-name">Puissance 4 Console</h3>
+                        <p class="script-description">Un jeu de Puissance 4 dans une console.</p>
+                        <p class="script-description">Langage : C#</p>
+                        <a href="./media/scripts/puissance-4-script/Puissance4-Console.zip" class="download-btn">Télécharger le code source</a>
+                        <a href="./media/scripts/puissance-4-script/puissance4_Kose.exe" class="download-btn">Télécharger l'exécutable</a>
+                    </div>
+                </div>
+        
+                <!-- Bloc 2 -->
+                <div class="script-block">
+                    <div class="script-content">
+                        <img src="./media/img/puissance4-console.png" alt="Puissance 4 Console Image" class="script-image">
+                        <h3 class="script-name">Puissance 4 Console</h3>
+                        <p class="script-description">Un jeu de Puissance 4 dans une console.</p>
+                        <p class="script-description">Langage : C#</p>
+                        <a href="./media/scripts/puissance-4-script/Puissance4-Console.zip" class="download-btn">Télécharger le code source</a>
+                        <a href="./media/scripts/puissance-4-script/puissance4_Kose.exe" class="download-btn">Télécharger l'exécutable</a>
+                    </div>
+                </div>
+            </div>
+            <br><br><br>
+        </div>
+        
+        
+
+        <div id="payant" class="tab-content" style="display: none">
+            <h2>Scripts Payants</h2>
+            <p>Découvrez nos scripts premium avec des fonctionnalités avancées.</p>
+        </div>
+
+        <div id="langages" class="tab-content" style="display: none;">
+            <h2>Langages de programmation</h2>
+            <p>Choisissez votre langage préféré pour vos projets :</p>
+            <ul>
+                <li>Python</li>
+                <li>C#</li>
+                <li>JavaScript</li>
+                <li>C++</li>
+            </ul>
+        </div>
     </main>
+
     <footer>
         <p>© 2025 - Tous droits réservés</p>
         <ul>
             <li><a href="./mentions-legales.html">Mentions Légales</a></li>
             <li><a href="./contact.html">Contact</a></li>
-            <li><a href="https://www.etml.ch/" target="_blank">Site ETML</a></li>
             <li><a href="mailto:okkes.kose@eduvaud.ch">Envoyer un e-mail</a></li>
         </ul>
     </footer>
+
+    <script>
+        function changeTab(tabName) {
+            let contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(tabName).style.display = 'block';
+
+            let tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector('.tab.' + tabName).classList.add('active');
+        }
+
+
+    </script>
 </body>
 </html>
